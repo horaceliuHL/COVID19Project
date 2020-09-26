@@ -100,6 +100,8 @@ async function getLat() {
   const response = await fetch(staticUrl);
   const d = await response.json();
 
+  console.log(d);
+
   for (let i = 0; i < d.data.length; i++) {
     confirmedCases = d.data[i].latest_data.confirmed;
     deaths = d.data[i].latest_data.deaths;
@@ -116,9 +118,6 @@ async function getLat() {
       todayTopDeathsCases[d.data[i].name] = todayTopDeathsCases; //adding values into today deaths array
     }
   }
-
-  console.log(sortByDeaths);
-  console.log(sortByConfirmed);
 
   chart.setOption({ //setting options for the echart map/leaflet and the coordinate dots
     series: [{
