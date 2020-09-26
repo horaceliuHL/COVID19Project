@@ -105,10 +105,10 @@ async function getLat() {
     deaths = d.data[i].latest_data.deaths;
     todayTopConfirmed = d.data[i].today.confirmed;
     todayTopDeaths = d.data[i].today.deaths;
-    console.log(confirmedCases);
     if (tempHashTable.hasOwnProperty(d.data[i].name + "\r")) {
       let tempLong = tempHashTable[d.data[i].name + "\r"][1];
       let tempLat = tempHashTable[d.data[i].name + "\r"][0];
+      console.log(tempLong);
       coordinatesData.push([tempLong, tempLat, confirmedCases]); //this is to get the coordinate data for the map
       sortByConfirmed[d.data[i].name] = confirmedCases; //adding values into total sort confirmed array
       sortByDeaths[d.data[i].name] = deaths; //adding values into total sort deaths array
