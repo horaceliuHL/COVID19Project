@@ -101,7 +101,7 @@ async function getLat() {
   const d = await response.json();
 
   console.log(d.data[0].name);
-  console.log(tempHashTable["Afghanistan\r"]);
+  console.log(tempHashTable["Afghanistan "]);
 
   for (let i = 0; i < d.data.length; i++) {
     confirmedCases = d.data[i].latest_data.confirmed;
