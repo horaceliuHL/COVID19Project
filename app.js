@@ -186,7 +186,8 @@ async function getLat() {
   var chart1 = echarts.init(dom1);
 
   //splits it by " " to put in an array and then removes all the "" values because some used to contain two spaces
-  let tempSortByDeaths = quickSortArray(sortByDeaths).split(" ");
+  var temp00 = quickSortArray(sortByDeaths);
+  let tempSortByDeaths = temp00.split(" ");
   let tempSortByDeaths2 = tempSortByDeaths.filter(function (e) { return e != "" });
 
   //takes the sorted tempSortByDeaths2 array and pulls out the top 10 countries with the most deaths
