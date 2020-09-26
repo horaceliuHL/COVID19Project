@@ -18,9 +18,9 @@ var todayTop3Deaths = [];
 var countiesCoordsWithEverything = [];
 var countiesWithConfirmedAndCoords = [];*/
 
-$.getJSON(staticUrl, function (data) { //show the database in the console
+/*$.getJSON(staticUrl, function (data) { //show the database in the console
   console.log(data);
-});
+});*/
 
 //copying everything from .csv file into the hashtable for country name and latitude/longitude because the current api data
 //does not contain all the latitudes and longitudes for all the countries
@@ -42,7 +42,7 @@ jQuery.ajax({
   }
 });
 
-console.log(tempHashTable); //show the hashtable in the console
+//console.log(tempHashTable); //show the hashtable in the console
 
 /*jQuery.ajax({ 
   url: "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv",
@@ -100,10 +100,6 @@ async function getLat() {
   const response = await fetch(staticUrl);
   const d = await response.json();
 
-  console.log(d.data[0].name + "FFFFFF");
-  var tempasdf = Object.keys(tempHashTable);
-  console.log(tempHashTable[3]);
-
   for (let i = 0; i < d.data.length; i++) {
     confirmedCases = d.data[i].latest_data.confirmed;
     deaths = d.data[i].latest_data.deaths;
@@ -112,7 +108,6 @@ async function getLat() {
     if (tempHashTable.hasOwnProperty(d.data[i].name/* + "\r"*/)) {
       let tempLong = tempHashTable[d.data[i].name/* + "\r"*/][1];
       let tempLat = tempHashTable[d.data[i].name/* + "\r"*/][0];
-      console.log(tempLong);
       coordinatesData.push([tempLong, tempLat, confirmedCases]); //this is to get the coordinate data for the map
       sortByConfirmed[d.data[i].name] = confirmedCases; //adding values into total sort confirmed array
       sortByDeaths[d.data[i].name] = deaths; //adding values into total sort deaths array
@@ -203,7 +198,7 @@ async function getLat() {
       }
     }
   }
-  console.log(top10Deaths);
+  //console.log(top10Deaths);
 
   chart1.setOption({ //generating the donut chart for top 10 countries with the most deaths and include top10Deaths data
     tooltip: {
@@ -250,7 +245,7 @@ async function getLat() {
       }
     }
   }
-  console.log(top10Confirmed);
+  //console.log(top10Confirmed);
 
   //Because I grabbed the top 10 countries with the most confirmed cases, I grab the corresponding recoveries with those countries
   for (var keys in top10Confirmed) {
@@ -260,7 +255,7 @@ async function getLat() {
       }
     }
   }
-  console.log(top10Recovered);
+  //console.log(top10Recovered);
 
   //I push the top 5 countries with the most confirmed cases (with recoveries) and push them into their respective arrays
   var actualKeysForConfirmed = Object.keys(top10Confirmed);
@@ -277,8 +272,8 @@ async function getLat() {
   var half = Math.ceil(actualKeysForConfirmed.length / 2);
   var firstHalfActualKeysForConfirmed = actualKeysForConfirmed.splice(0, half);
 
-  console.log(top8Confirmed);
-  console.log(top8Recovered);
+  //console.log(top8Confirmed);
+  //console.log(top8Recovered);
 
   var dom2 = document.getElementById('barChart');
   var chart2 = echarts.init(dom2);
@@ -345,7 +340,7 @@ async function getLat() {
       }
     }
   }
-  console.log(todayTop3Confirmed);
+  //console.log(todayTop3Confirmed);
 
   //Because I grabbed the top 3 countries with the most (newest) confirmed cases, I grab and push the corresponding deaths
   for (let i = 0; i < listOfCountriesForToday.length; i++) {
@@ -355,7 +350,7 @@ async function getLat() {
       }
     }
   }
-  console.log(todayTop3Deaths);
+  //console.log(todayTop3Deaths);
 
   var dom3 = document.getElementById('barChartForToday');
   var chart3 = echarts.init(dom3);
