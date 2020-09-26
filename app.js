@@ -232,7 +232,7 @@ async function getLat() {
   //This part below is all for the bar chart for top 8 countries with the most confirmed cases with recovered cases
 
   //splits it by " " to put in an array and then removes all the "" values because some used to contain two spaces
-  let tempSortByConfirmed = quickSortArray(sortByConfirmed).split(" ");
+  let tempSortByConfirmed = quickSortArray(sortByConfirmed).toLocaleString().split(" ");
   let tempSortByConfirmed2 = tempSortByConfirmed.filter(function (e) { return e != "" });
 
   //Takes the sorted tempSortByConfirmed2 array and pulls out the top 10 countries with the most confirmed cases
@@ -326,7 +326,7 @@ async function getLat() {
   //This part below is all for the bar graph with today's top 3 countries with the newest most confirmed cases and deaths
 
   //splits it by " " to put in an array and then removes all the "" values because some used to contain two spaces
-  let tempSortByTodayConfirmed = quickSortArray(todayTopConfirmedCases).split(" ");
+  let tempSortByTodayConfirmed = quickSortArray(todayTopConfirmedCases).toLocaleString().split(" ");
   let tempSortByTodayConfirmed2 = tempSortByTodayConfirmed.filter(function (e) { return e != "" });
   var keysForTodayConfirmed = Object.keys(tempSortByTodayConfirmed2);
   var listOfCountriesForToday = []; //IMPORTANT FOR BAR GRAPH KEYS (country names)
