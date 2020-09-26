@@ -187,6 +187,7 @@ async function getLat() {
 
   //splits it by " " to put in an array and then removes all the "" values because some used to contain two spaces
   let tempSortByDeaths = quickSortArray(sortByDeaths).toLocaleString().split(" ");
+  console.log(tempSortByDeaths);
   let tempSortByDeaths2 = tempSortByDeaths.filter(function (e) { return e != "" });
 
   //takes the sorted tempSortByDeaths2 array and pulls out the top 10 countries with the most deaths
