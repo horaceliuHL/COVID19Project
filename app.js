@@ -100,13 +100,12 @@ async function getLat() {
   const response = await fetch(staticUrl);
   const d = await response.json();
 
-  console.log(d.data);
-
   for (let i = 0; i < d.data.length; i++) {
     confirmedCases = d.data[i].latest_data.confirmed;
     deaths = d.data[i].latest_data.deaths;
     todayTopConfirmed = d.data[i].today.confirmed;
     todayTopDeaths = d.data[i].today.deaths;
+    console.log(confirmedCases);
     if (tempHashTable.hasOwnProperty(d.data[i].name + "\r")) {
       let tempLong = tempHashTable[d.data[i].name + "\r"][1];
       let tempLat = tempHashTable[d.data[i].name + "\r"][0];
