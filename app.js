@@ -100,6 +100,8 @@ async function getLat() {
   const response = await fetch(staticUrl);
   const d = await response.json();
 
+  console.log(tempHashTable);
+
   for (let i = 0; i < d.data.length; i++) {
     confirmedCases = d.data[i].latest_data.confirmed;
     deaths = d.data[i].latest_data.deaths;
