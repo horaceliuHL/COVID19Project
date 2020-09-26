@@ -34,7 +34,7 @@ jQuery.ajax({
 
     for (let i = 1; i < lines.length; i++) {
       let current = lines[i].split(',');
-      tempHashTable[""+ current[3]] = [current[1], current[2]];
+      tempHashTable[current[3]] = [current[1], current[2]];
     }
   },
   error: function (jqXHR, textStatus, errorThrow) {
@@ -100,8 +100,9 @@ async function getLat() {
   const response = await fetch(staticUrl);
   const d = await response.json();
 
-  console.log(d.data[0].name);
-  console.log(tempHashTable["Afghanistan"]);
+  console.log(d.data[0].name + "FFFFFF");
+  var tempasdf = Object.keys(tempHashTable);
+  console.log(tempasdf[2] + "FFFFFF");
 
   for (let i = 0; i < d.data.length; i++) {
     confirmedCases = d.data[i].latest_data.confirmed;
