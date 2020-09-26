@@ -13,6 +13,11 @@ var todayTopDeathsCases = [];
 var todayTop3Confirmed = [];
 var todayTop3Deaths = [];
 
+
+/*var countiesNameConfirmedDeaths = [];
+var countiesCoordsWithEverything = [];
+var countiesWithConfirmedAndCoords = [];*/
+
 $.getJSON(staticUrl, function (data) { //show the database in the console
   console.log(data);
 });
@@ -38,6 +43,50 @@ jQuery.ajax({
 });
 
 console.log(tempHashTable); //show the hashtable in the console
+
+/*jQuery.ajax({ 
+  url: "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv",
+  type: 'get',
+  dataType: 'text',
+  success: function (data) {
+    let lines = data.split('\n');
+    let tempArrayForCounties = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      let current = lines[i].split(',');
+      tempArrayForCounties.push([current[1],current[4]]);
+    }
+
+    for (var i = 0; i < tempArrayForCounties.length; i++){
+      if (countiesNameConfirmedDeaths.con){
+        countiesNameConfirmedDeaths[keys] = tempArrayForCounties[keys];
+      } else {
+        countiesNameConfirmedDeaths[keys][0] += tempArrayForCounties[keys][0];
+      }
+    }
+  },
+  error: function (jqXHR, textStatus, errorThrow) {
+    console.log(textStatus);
+  }
+});
+
+
+jQuery.ajax({ 
+  url: "/CountiesInfo.csv",
+  type: 'get',
+  dataType: 'text',
+  success: function (data) {
+    let lines = data.split('\n');
+
+    for (let i = 0; i < lines.length; i++) {
+      let current = lines[i].split(',');
+      countiesCoordsWithEverything[current[0]] = [current[2], current[1]];
+    }
+  },
+  error: function (jqXHR, textStatus, errorThrow) {
+    console.log(textStatus);
+  }
+});*/
 
 //initializing echarts for map and points
 var dom = document.getElementById('main');
@@ -384,10 +433,38 @@ async function getLat() {
   document.getElementById("tenthCValue").innerHTML = parseInt(top10Confirmed[testarray[9]]).toLocaleString();
 
   //grabbing the total cases in all the countries and putting them in the html
-  document.getElementById("totalval").innerHTML = totalConfirmedCasesNum.toLocaleString(); 
+  document.getElementById("totalval").innerHTML = totalConfirmedCasesNum.toLocaleString();
+  
+  
+  /*for (var keys in countiesNameConfirmedDeaths){
+    if (countiesCoordsWithEverything.hasOwnProperty(keys)){
+      countiesWithConfirmedAndCoords[keys] = [countiesNameConfirmedDeaths[0], countiesCoordsWithEverything[0], countiesCoordsWithEverything[1]];
+    }
+  }
+  
+  var temp1111 = Object.keys(countiesNameConfirmedDeaths);
+  var temp2222 = Object.keys(countiesCoordsWithEverything);
+  console.log(temp1111[0] == temp2222[0])
+  console.log(temp1111);
+  console.log(temp2222[3]);
+  
+  console.log(countiesNameConfirmedDeaths["Abbeville"]);
+  
+  
+  
+  console.log(countiesNameConfirmedDeaths);
+  console.log(countiesCoordsWithEverything);
+  console.log(countiesWithConfirmedAndCoords);*/
 
 }
 
 getLat(); //calls getLat to run the program in which getLat() contains everything on the website
+
+
+
+
+
+
+
 
 
