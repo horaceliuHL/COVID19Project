@@ -102,7 +102,7 @@ async function getLat() {
 
   console.log(d.data[0].name + "FFFFFF");
   var tempasdf = Object.keys(tempHashTable);
-  console.log(tempasdf[2] + "FFFFFF");
+  console.log(tempasdf);
 
   for (let i = 0; i < d.data.length; i++) {
     confirmedCases = d.data[i].latest_data.confirmed;
