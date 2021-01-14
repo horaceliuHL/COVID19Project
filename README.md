@@ -1,5 +1,5 @@
 <p align = "center">
-  <img src = "https://user-images.githubusercontent.com/65971326/104558514-ea948700-5610-11eb-8d2c-5451e057e1b6.png" width = "700" height = "350" >
+  <img src = "https://user-images.githubusercontent.com/65971326/104558514-ea948700-5610-11eb-8d2c-5451e057e1b6.png" width = "600" height = "350" >
 </p>
 
 # COVID19Project
