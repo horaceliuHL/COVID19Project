@@ -1,3 +1,7 @@
+<p align = "center">
+  <img src = "https://user-images.githubusercontent.com/65971326/104558514-ea948700-5610-11eb-8d2c-5451e057e1b6.png" width = "700" height = "350" >
+</p>
+
 # COVID19Project
 
 The COVID-19 Live Dashboard is a live worldwide processing software for COVID-19 which pulls from accurate APIs. The program configures high-level data into various visualizations that categorize the epidemic. Visitors can easily differentiate between the recovery rate and confirmed cases within countries, as well as derive regression data from each day's highest cases for the top 3 countries. In addition, maps and donut charts are presented for a colorful, yet clear visual representation of the current state the pandemic is in accross the world, with the top death rates per country and the top confirmed cases per country shown clearly on the dashboard.
